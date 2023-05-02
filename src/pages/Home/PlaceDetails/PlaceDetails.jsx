@@ -1,11 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const PlaceDetails = () => {
     const place = useLoaderData();
-    const { description, placeName } = place;
+    const { description, placeName, id } = place;
 
     return (
         <section className='grid grid-cols-1 lg:grid-cols-2'>
@@ -37,7 +37,7 @@ const PlaceDetails = () => {
                                     <input className='bg-orange-400 rounded p-1' type="date" name="" id="" />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-warning">Start Booking</button>
+                                    <Link to={`/hotels/${id}`}><button className="btn btn-warning">Start Booking</button></Link>
                                 </div>
                             </div>
                         </div>

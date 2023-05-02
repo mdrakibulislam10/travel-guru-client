@@ -2,6 +2,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Home from "../pages/Home/Home/Home";
 import PlaceDetails from "../pages/Home/PlaceDetails/PlaceDetails";
+import Hotels from "../pages/Hotels/Hotels/Hotels";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,16 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "/hotels/:id",
+        element: <Hotels />,
+        loader: ({ params }) => fetch(`https://travel-guru-server-eight-zeta.vercel.app/hotels/${params.id}`),
+        children: [
+            {
+                // path: 
+            }
+        ]
+    }
 ]);
 
 export default router;
